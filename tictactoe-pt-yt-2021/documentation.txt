@@ -1,0 +1,44 @@
+ReactJS - Tic Tac Toe
+
+-instaliramo react aplikaciju sa npx create-react-app (ime aplikacije)
+-u komponenti App.js importujemo React Hook useState
+-kreiramo state varijablu const [board, setBoard] = useState([...])
+-kreiramo folder components
+-u folderu components kreiramo komponentu Square.jsx
+-u komponenti Square, funkciji Square dodajemo parametre destruktuirane prop val i chooseSquare
+-div elementu dodajemo className i dogadaj onClick
+-u dogadaj onClick proslijedujemo vrijednost prop-a chooseSquare
+-u komponentu App.js importujemo komponentu Square.jsx
+-u return izjavi, komponentama Square dodajemo prop val i chooseSquare
+-u komponenti App.jsx kreiramo funkciju chooseSquare sa parametrom square
+-u return izjavi, prop chooseSquare proslijedujemo funkciju chooseSquare
+-kreiramo const [player, setPlayer] = useState("X")
+-u funkciji chooseSquare dodajemo funkciju setBoard
+-u funkciji setBoard() dodajemo varijabli board metodu .map()
+-dodajemo uslov if (player === 'X') - else 
+-u if uslov dodajemo setPlayer('O')
+-u else uslov dodajemo setPlayer('X')
+-kreiramo Patterns.js fajl
+-u Patterns.js fajlu kreiramo i eksportujemo niz Patterns
+-u komponentu App.jsx importujemo Patterns niz iz Patterns.js fajla
+-u komponenti App.jsx kreiramo funkciju checkWin()
+-u funkciji checkWin(), varijabli Patterns dodajemo metodu .forEach()
+-u metodi .forEach() kreiramo varijablu const firstPlayer
+-varijabli currentPattern dodajemo metodu .forEach()
+-u metodi .forEach() dodajemo uslov if
+-kreiramo varijablu let foundWinningPattern 
+-dodajemo uslov if (foundWinningPattern)
+-kreiramo const [result, setResult] = useState({winner:'none', state:'none'})
+-kreiramo funkciju useEffect()
+-u funkciji useEffect() dodajemo funkciju checkWin()
+-kreiramo jos jednu funkciju useEffect() 
+-u funkciji useEffect() dodajemo uslov if (result.state !== 'none')
+-kreiramo funkciju checkIfTie()
+-u funkciji checkIfTie kreiramo varijablu let filled
+-dodajemo varijabli board metodu .forEach()
+-u metodi .forEach() dodajemo uslov if (square === '')
+-u funkciju checkIfTie dodajemo uslov if (filled) 
+-u uslov if (filled) dodajemo funkciju setResult()
+-u funkciju useEffect() dodajemo funkcije checkWin() i checkIfTie()
+-kreiramo funkciju restartGame()
+-u funkciju restartGame() dodajemo funkcije setBoard() i setPlayer()

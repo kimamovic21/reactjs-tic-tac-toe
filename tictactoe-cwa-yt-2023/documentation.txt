@@ -1,0 +1,100 @@
+ReactJS Tic Tac Toe App
+
+-kreiramo ReactJS Vite projekt
+-kreiramo folder components
+-kreiramo komponentu TacTacToe.jsx
+-u komponentu App.jsx importujemo komponentu TacTacToe.jsx
+-kreiramo komponentu Board.jsx
+-u komponentu TicTacToe.jsx importujemo komponentu Board.jsx
+-kreiramo komponentu Tile.jsx
+-u komponentu Board.jsx importujemo komponentu Tile.jsx
+-kreiramo komponentu Strike.jsx
+-u komponentu Board.jsx importujemo komponentu Strike.jsx
+-HTML elementima dodajemo klase sa className
+-u komponenti Board.jsx, komponentama Tile dodajemo prop className
+-u komponenti Tile.jsx, funkciji Tile dodajemo parametar destruktuirani prop className
+-div elementu dodajemo dinamicku klasu u koju proslijedujemo vrijednost prop className
+-u komponentu TicTacToe.jsx importujemo React Hook useState
+-kreiramo state varijablu const [tiles, setTiles] = useState(Array(9).fill(null))
+-u return izjavi, komponenti Board dodajemo prop tiles
+-u prop tiles proslijedujemo vrijednost varijable tiles
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop tiles
+-u return izjavi komponentama Tile dodajemo prop value
+-u prop value proslijedujemo vrijednost prop tiles
+-u komponenti Tile.jsx, funkciji Tile dodajemo parametar destruktuirani prop value
+-u return izjavu dodajemo varijablu {value}
+-u komponenti TacTacToe.jsx kreiramo state varijablu const [playerTurn, setPlayerTurn] = useState(PLAYER_X)
+-kreiramo varijable PLAYER_X i PLAYER_O
+-kreiramo funkciju handleTileClick sa parametrom index
+-u return izjavi komponenti Board dodajemo prop onTileClick
+-u prop onTileClick proslijedujemo funkciji handleTileClick
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop onTileClick 
+-u return izjavi komponentama Tile dodajemo prop onClick
+-u komponenti Tile.jsx, funkciji Tile dodajemo parametar destruktuirani prop onClick
+-div elementu dodajemo dogadaj onClick
+-u dogadaj onClick proslijedujemo vrijednost prop onClick
+-u komponenti TacTacToe.jsx, u funkciji handleTileClick() kreiramo varijablu const newTiles
+-u funkciju handleTileClick() dodajemo newTiles[index] = playerTurn
+-u funkciju handleTileClick() dodajemo funkciju setTiles(newTiles);
+-u funkciju handleTileClick() dodajemo uslov if da mozemo mijenjati igraci PLAYER_X i PLAYER_O
+-u funkciju handleTileClick() dodajemo uslov if da provjerimo da li je polje u nizu tiles[index] koji smo kliknuli razlicit od null
+-ako je polje razlicito od null, tj ako smo polje vec kliknuli onda samo dodamo return da se nista ne desi
+-u komponenti TacTacToe.jsx, u return izjavi komponenti Board dodajemo prop playerTurn
+-u prop playerTurn proslijedujemo varijablu playerTurn
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop playerTurn
+-u return izjavi, komponentama Tile dodajemo prop playerTurn
+-u prop playerTurn proslijedujemo prop playerTurn
+-u komponenti Tile, funkciji Tile dodajemo parametar destruktuirani prop playerTurn
+-kreiramo varijablu let hoverClass
+-dodajemo uslov u kojem provjeravamo da li je value === null i da li je playerTurn !== null
+-u uslov if dodajemo varijablu hoverClass
+-ukoliko je uslov zadovoljen varijabli hoverClass dodajemo dinamicku klasu
+-u komponenti Strike.jsx, roditelj div elementu dodajemo klasu strike
+-u komponenti TicTacToe.jsx kreiramo state varijablu za promjenu klase const [strikeClass, setStrikeClass] = useState('')
+-u return izjavi komponenti Board dodjaemo prop strikeClass
+-u prop strikeClass proslijedujemo varijablu strikeClass
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop strikeClass
+-u return izjavi komponenti Strike dodajemo prop strikeClass
+-u prop strikeClass proslijedujemo prop strikeClass
+-u komponenti Strike.jsx, funkciji Strike dodajemo parametar destruktuirani prop strikeClass
+-div elementu dodajemo dinamicku klasu
+-u komponentu TicTacToe.jsx importujemo React Hook useEffect
+-u komponenti TicTacToe.jsx kreiramo funkciju checkWinner()
+-kreiramo funkciju useEffect()
+-u funkciju useEffect() dodajemo funkciju checkWinner()
+-u dependency array dodajemo varijablu tiles
+-kreiramo niz const WINNING_COMBINATIONS 
+-u nizu WINNING_COMBINATIONS kreiramo objekte koje sa sadrze kljuceve combination i strikeClass
+-funkciji checkWinner() dodajemo parametre tiles i setStrikeClass
+-u funkciji useEffect(), funkciji checkWinner() dodajemo argumente tiles i setStrikeClass
+-u funkciji checkWinner() kreiramo for petlju
+-u for petlji uradimo destruktuiranje objekta const { combination, strikeClass } = winningCombination
+-u for petlji kreiramo tri varijable tileValue
+-u for petlji dodajemo uslov if (tileValue1 !== null && tileValue1 === tileValue2 && tileValue1 && tileValue3)
+-u uslov if dodajemo funkciju setStrikeClass(strikeClass)
+-kreiramo komponentu GameOver.jsx
+-u komponentu TicTacToe.jsx importujemo komponentama GameOver.jsx
+-kreiramo fajl GameState.js
+-u fajlu GameState.js kreiramo objekt GameState
+-u komponentu App.jsx importujemo objekt GameState
+-kreiramo state varijablu const [gameState, setGameState] = useState(GameState.inProgress)
+-u return izjavi komponenti GameOver dodajemo prop gameState
+-u prop gameState proslijedujemo varijablu gameState
+-u komponenti GameOver.jsx, funkciji GameOver dodajemo parametar destruktuirani prop gameState
+-importujemo objekt GameState
+-dodajemo uslov switch(gameState)
+-u komponenti TicTacToe, u for petlji dodajemo uslov if (tileValue1 === PLAYER_X) 
+-u funkciji checkWinner() kreiramo varijablu const areAllTilesFilledIn
+-dodajemo uslov if (areAllTilesFilledIn)
+-u uslov if (areAllTilesFilledIn) dodajemo funkciju setGameState(GameState.draw)
+-u komponenti TicTacToe.jsx, u funkciju handleTileClick() dodajemo uslov if (gameState !== GameState.inProgress) gdje provjeravamo da li je zavrsila igra
+-kreiramo komponentu Reset.jsx
+-u komponentu TicTacToe.jsx importujemo komponentu Reset.jsx
+-u return izjavi komponenti Reset dodajemo prop gameState
+-u komponenti Reset.jsx, funkciji Reset dodajemo parametar destruktuirani prop gameState
+-dodajemo uslov if (gameState === GameState.inProgress) da se dugme ne pojavljuje dok igra traje
+-u komponenti TicTacToe.jsx kreiramo funkciju handleReset()
+-u funkciji handleReset() dodajemo funkcije setGameState, setTiles, setPlayerTurn, setStrikeClass
+-u return izjavi komponenti Reset dodajemo prop onReset
+-u prop onReset proslijedujemo funkciji handleReset
+-

@@ -1,0 +1,44 @@
+ReactJS Tic Tac Toe App
+
+-instaliramo react aplikaciju npx create-react-app (app name)
+-kreiramo folder components
+-u folderu components kreiramo tri komponente Board.jsx, Game.jsx i Square.jsx
+-kreiramo helpers.js fajl
+-u komponenti Square.jsx, funkciji Square dodajemo parametre destruktuirane prop value, onClick
+-u return izjavi button elementu dodajemo dogadaj onClick
+-u dogadaj onClick proslijedujemo prop onClick
+-kreiramo varijablu style
+-u komponentu Board.jsx importujemo komponentu Square.jsx
+-funkciji Board dodajemo parametre destruktuirane prop squares, onClick
+-u return izjavi, varijabli squares dodajemo metodu .map()
+-u metodu .map() dodajemo komponentu Square
+-komponenti Square dodajemo prop key, value, onClick
+-u komponenti Game.jsx kreiramo state varijablu const [history, setHistory] = useState([null * 9]);
+-kreiramo state varijablu const [stepNumber, setStepNumber] = useState(0)
+-kreiramo state varijablu const [xIsNext, setXisNext] = useState(true)
+-kreiramo varijablu const winner
+-importujemo funkciju calculateWinner
+-kreiramo varijablu const xO
+-kreiramo funkciju handleClick
+-u funkciji handleClick kreiramo varijablu const historyPoint
+-kreiramo varijablu const current
+-kreiramo varijablu const squares
+-dodajemo uslov if (winner || squares[index])
+-dodajemo squares[index] = xO
+-dodajemo funkciju setHistory([...historyPoint, squares])
+-dodajemo funkciju setStepNumber(historyPoint.length)
+-dodajemo funkciju setXisNext(!xIsNext)
+-u komponentu Game.jsx importujemo komponentu Board.jsx
+-u return izjavi komponenti Board dodajemo prop squares, onClick
+-u prop squares proslijedujemo history[stepNumber]
+u prop onClick proslijedujemo funkciju handleClick
+-kreiramo funkciju renderMoves()
+-u h3 element dodajemo uslov { winner ? ... : ...}
+-u funkciji renderMoves() dodajemo varijabli history metodu .map()
+-u metodi .map() kreiramo varijablu const destination
+-u return izjavu dodajemo elemente li i button
+-button elementu dodajemo dogadaj onClick
+-kreiramo funkciju jumpTo() sa parametrom step
+-u funkciju jumpTo() dodajemo funkcije setStepNumber() i setXisNext()
+-u komponentu App.js importujemo komponentu Game.jsx
+-

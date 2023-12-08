@@ -1,0 +1,82 @@
+ReactJS Tic Tac Toe App
+
+-kreiramo ReactJS aplikaciju sa npx create-react-app . u postojeci folder
+-kreiramo folder components
+-kreiramo komponentu Board.jsx
+-u komponentu App.jsx importujemo komponentu Board.jsx
+-kreiramo komponentu Tile.jsx
+-u komponentu Board.jsx importujemo komponentu Tile.jsx
+-HTML elementima dodajemo klase sa className
+-u komponenti Board.jsx, komponentama Tile dodajemo prop className
+-u komponenti Tile.jsx, funkciji Tile dodajemo parametar destruktuirani prop className
+-div elementu dodajemo dinamicku klasu u koju proslijedujemo vrijednost prop className
+-u komponentu App.jsx importujemo React Hook useState
+-kreiramo state varijablu const [tiles, setTiles] = useState([ null * 9])
+-u return izjavi, komponenti Board dodajemo prop tiles
+-u prop tiles proslijedujemo vrijednost varijable tiles
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop tiles
+-u return izjavi komponentama Tile dodajemo prop value
+-u prop value proslijedujemo vrijednost prop tiles
+-u komponenti Tile.jsx, funkciji Tile dodajemo parametar destruktuirani prop value
+-u return izjavu dodajemo varijablu {value}
+-u komponenti App.jsx kreiramo state varijablu const [playerTurn, setPlayerTurn] = useState(PLAYER_X)
+-kreiramo varijable PLAYER_X i PLAYER_O
+-kreiramo funkciju handleTileClick sa parametrom index
+-u return izjavi komponenti Board dodajemo prop onTileClick
+-u prop onTileClick proslijedujemo funkciju handleTileClick
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop onTileClick 
+-u return izjavi komponentama Tile dodajemo prop onClick
+-u komponenti Tile.jsx, funkciji Tile dodajemo parametar destruktuirani prop onClick
+-div elementu dodajemo dogadaj onClick
+-u dogadaj onClick proslijedujemo vrijednost prop onClick
+-u komponenti App.jsx, u funkciji handleTileClick() kreiramo varijablu const newTiles
+-u funkciju handleTileClick() dodajemo newTiles[index] = playerTurn
+-u funkciju handleTileClick() dodajemo funkciju setTiles(newTiles)
+-u funkciju handleTileClick() dodajemo uslov if (playerTurn === PLAYER_X) da mozemo mijenjati igrace PLAYER_X i PLAYER_O
+-u funkciju handleTileClick() dodajemo uslov if (tiles[index] !== null) da provjerimo da li je polje u nizu tiles[index] koje smo kliknuli razlicito od null
+-ako je polje razlicito od null, tj. ako smo polje vec kliknuli onda samo dodamo return da se nista ne desi
+-u komponenti App.jsx, u return izjavi komponenti Board dodajemo prop playerTurn
+-u prop playerTurn proslijedujemo varijablu playerTurn
+-u komponenti Board.jsx, funkciji Board dodajemo parametar destruktuirani prop playerTurn
+-u return izjavi, komponentama Tile dodajemo prop playerTurn
+-u prop playerTurn proslijedujemo prop playerTurn
+-u komponenti Tile, funkciji Tile dodajemo parametar destruktuirani prop playerTurn
+-u komponentu App.jsx importujemo React Hook useEffect
+-u komponenti App.jsx kreiramo funkciju checkWinner()
+-kreiramo funkciju useEffect()
+-u funkciju useEffect() dodajemo funkciju checkWinner()
+-u dependency array dodajemo varijablu tiles
+-kreiramo niz const WINNING_COMBINATIONS 
+-u nizu WINNING_COMBINATIONS kreiramo objekte koje sa sadrze kljuc combination i value koji predstavlja kombinaciju brojeva da se pobjedi
+-funkciji checkWinner() dodajemo parametre tiles i setGameState
+-u funkciji useEffect(), funkciji checkWinner() dodajemo argumente tiles i setGameState
+-u funkciji checkWinner() kreiramo for of petlju
+-u for petlji uradimo destruktuiranje objekta const { combination } = winningCombination
+-u for petlji kreiramo tri varijable tileValue1, tileValue2, tileValue3
+-u for petlji dodajemo uslov if (tileValue1 !== null && tileValue1 === tileValue2 && tileValue1 && tileValue3)
+-u uslov if dodajemo funkciju setStrikeClass(strikeClass)
+-kreiramo komponentu GameOver.jsx
+-u komponentu App.jsx importujemo komponentu GameOver.jsx
+-kreiramo fajl GameState.js
+-u fajlu GameState.js kreiramo objekt GAMESTATE
+-u komponentu App.jsx importujemo objekt GAMESTATE
+-kreiramo state varijablu const [gameState, setGameState] = useState(GAMESTATE.inProgress)
+-u return izjavi komponenti GameOver dodajemo prop gameState
+-u prop gameState proslijedujemo varijablu gameState
+-u komponenti GameOver.jsx, funkciji GameOver dodajemo parametar destruktuirani prop gameState
+-importujemo objekt GAMESTATE
+-dodajemo uslove if () gdje provjeravamo da li vrijednost varijable prop gameState jednaka GAME_STATE.playerXWins, GAME_STATE.playerOWins, GAME_STATE.draw
+-u komponenti App.jsx, u for of petlji dodajemo uslov if (tileValue1 === PLAYER_X) 
+-u funkciji checkWinner() kreiramo varijablu const areAllTilesFilledIn
+-dodajemo uslov if (areAllTilesFilledIn)
+-u uslov if (areAllTilesFilledIn) dodajemo funkciju setGameState(GAME_STATE.draw)
+-u komponenti App.jsx, u funkciju handleTileClick() dodajemo uslov if (gameState !== GAME_STATE.inProgress) gdje provjeravamo da li je zavrsila igra
+-kreiramo komponentu Reset.jsx
+-u komponentu App.jsx importujemo komponentu Reset.jsx
+-u return izjavi komponenti Reset dodajemo prop gameState
+-u komponenti Reset.jsx, funkciji Reset dodajemo parametar destruktuirani prop gameState
+-dodajemo uslov if (gameState === GAME_STATE.inProgress) da se dugme Reset ne pojavljuje dok igra traje
+-u komponenti App.jsx kreiramo funkciju handleReset()
+-u funkciju handleReset() dodajemo funkcije setGameState, setTiles, setPlayerTurn 
+-u return izjavi komponenti Reset dodajemo prop onReset
+-u prop onReset proslijedujemo funkciji handleReset
